@@ -7,4 +7,4 @@ export default function Quote({ name, message, time }) {
         </div>
     );
 }
-// use this file to render each code so the App.jsx isnt overkill
+// use this file to render each code so the App.jsx isn't overkill

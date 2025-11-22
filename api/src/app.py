@@ -22,7 +22,7 @@ database: JSONDatabase[list[Quote]] = JSONDatabase("data/database.json")
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     """Handle database management when running app."""
-    if "quotes" not in database:
+    if "quotes" not in database: 
         print("Adding quotes entry to database")
         database["quotes"] = []
 
