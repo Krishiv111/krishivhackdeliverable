@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", Arial, sans-serif;
+    background: linear-gradient(135deg, #4a84ff, #1b2e66);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    color: #ffffff;
+}
+
+
+.App {
+    max-width: 600px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+
+h1 {
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #dce6ff;
+}
+
+
+
+.quote-form label {
+    display: block;
+    margin-top: 12px;
+    font-weight: 600;
+    color: #cdd9ff;
+}
+
+.quote-form input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.quote-form input::placeholder {
+    color: #cbd7ff;
+}
+
+.quote-form input:focus {
+    background: rgba(255,255,255,0.25);
+    box-shadow: 0 0 8px rgba(255,255,255,0.4);
+}
+
+
+
+.quote-form button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #6aa4ff;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.quote-form button:hover {
+    background: #8bb8ff;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
+}
+
+.quote-form button:active {
+    transform: translateY(0px);
+}
+
+
+select {
+    margin-top: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    width: 50%;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    outline: none;
+}
+
+select option {
+    color: black;
+}
+
+
+.quote {
+    background: rgba(255,255,255,0.15);
+    padding: 18px;
+    border-radius: 12px;
+    margin-top: 12px;
+    text-align: left;
+    backdrop-filter: blur(6px);
+    border-left: 4px solid #a5c4ff;
+    color: #eef3ff;
+}
+
+.quote h3 {
+    margin: 0 0 6px 0;
+    color: #ffffff;
+}
+
+.quote p {
+    margin: 0;
+    font-size: 15px;
+}
+
+.quote small {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.App {
+  background-image: url('./quotebook.png');
+  background-repeat: no-repeat;
+  background-size: 150px;
+  background-position: top center;
+  padding-top: 150px; 
+}
