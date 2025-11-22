@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 from datetime import datetime
 from typing import AsyncIterator
 
-from fastapi import FastAPI, Form, status
+from fastapi import FastAPI, Form, status,  APIRouter
 from fastapi.responses import RedirectResponse
 from typing_extensions import TypedDict
 
@@ -33,7 +33,9 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
 app = FastAPI(lifespan=lifespan)
 
 
-@app.post("/quote")
+router = APIRouter(prefix="/api")
+
+@router.post("/quote")
 def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
     """
     Process a user submitting a new quote.
@@ -46,5 +48,9 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
     # You may modify the return value as needed to support other functionality
     return RedirectResponse("/", status.HTTP_303_SEE_OTHER)
 
+@router.get("/quotes") # Get the quotes this is Part of CRUD which get the quotes when typing in the /quotes
+def get_quotes():
+    return database["quotes"]
 
+app.include_router(router)
 # TODO: add another API route with a query parameter to retrieve quotes based on max age
