@@ -5,6 +5,7 @@ from typing import AsyncIterator
 from fastapi import FastAPI, Form, status,  APIRouter
 from fastapi.responses import RedirectResponse
 from typing_extensions import TypedDict
+from datetime import datetime, timedelta
 
 from services.database import JSONDatabase
 
@@ -52,5 +53,20 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
 def get_quotes():
     return database["quotes"]
 
-app.include_router(router)
+
 # TODO: add another API route with a query parameter to retrieve quotes based on max age
+# I learned a lot and how to specifically do this correctly and work with query parameters through Zeq Tech Youtube Videos on FAST API
+
+@router.get("/quotes/filter")
+async def get_quotes_by_age(max_age: int):
+    
+    cutoff = datetime.now() - timedelta(minutes=max_age)
+
+    filtered = [
+        quote for quote in database["quotes"]
+        if datetime.fromisoformat(quote["time"]) >= cutoff
+    ]
+
+    return filtered
+
+app.include_router(router)
